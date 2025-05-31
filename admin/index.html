@@ -1,0 +1,33 @@
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <title>Painel Admin - Livraria Lumina</title>
+  <style>
+    body { font-family: sans-serif; padding: 30px; }
+    input, button { display: block; margin: 10px 0; padding: 10px; width: 100%; max-width: 400px; }
+  </style>
+</head>
+<body>
+  <h2>Login do Administrador</h2>
+  <input type="email" id="gmail" placeholder="Seu Gmail" />
+  <input type="password" id="senha" placeholder="Senha" />
+  <button onclick="entrar()">Entrar</button>
+  <p id="msg"></p>
+  <script>
+    const senhaCorreta = "lumina2025";
+
+    function entrar() {
+      const gmail = document.getElementById("gmail").value;
+      const senha = document.getElementById("senha").value;
+      if (senha === senhaCorreta) {
+        localStorage.setItem("admin", "logado");
+        window.location.href = "painel.html";
+      } else {
+        document.getElementById("msg").innerText = "Senha incorreta.";
+      }
+    }
+  </script>
+</body>
+</html>
